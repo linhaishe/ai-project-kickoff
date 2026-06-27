@@ -1,0 +1,14 @@
+.DS_Store
+skill-design/.DS_Store
+
+# Local scratch and generated output
+.scratch/
+tmp/
+dist/
+
+# Dependencies and package manager noise
+node_modules/
+.pnpm-store/
+
+# Logs
+*.log

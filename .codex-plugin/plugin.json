@@ -1,0 +1,30 @@
+{
+  "name": "ai-project-kickoff",
+  "version": "0.1.0",
+  "description": "Create durable project kickoff context packages before implementation.",
+  "author": {
+    "name": "miamiamia"
+  },
+  "repository": "https://github.com/miamiamia/ai-project-kickoff",
+  "license": "MIT",
+  "keywords": [
+    "project-kickoff",
+    "context",
+    "agents",
+    "architecture",
+    "design",
+    "handoff"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI Project Kickoff",
+    "shortDescription": "Generate project context docs before implementation.",
+    "longDescription": "AI Project Kickoff turns a PRD, product idea, or existing repo into a durable context package with AGENTS.md, product overview, architecture, design, progress, implementation rules, wireframes, and optional governance records.",
+    "developerName": "miamiamia",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": "Create a kickoff context package for this project."
+  }
+}
