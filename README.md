@@ -6,6 +6,16 @@ Use it when you want an agent to create the project docs future sessions need be
 
 ## Install
 
+### skills installer
+
+Install from GitHub with the skills installer:
+
+```bash
+npx skills@latest add miamiamia/ai-project-kickoff
+```
+
+Select the `ai-project-kickoff` skill when prompted.
+
 ### Claude-style skill/plugin installers
 
 This repository includes `.claude-plugin/plugin.json`, modeled after the structure used by [`mattpocock/skills`](https://github.com/mattpocock/skills).
