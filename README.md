@@ -11,7 +11,7 @@ Use it when you want an agent to create the project docs future sessions need be
 Install from GitHub with the skills installer:
 
 ```bash
-npx skills@latest add miamiamia/ai-project-kickoff
+npx skills@latest add linhaishe/ai-project-kickoff
 ```
 
 Select the `ai-project-kickoff` skill when prompted.
