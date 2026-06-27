@@ -4,6 +4,12 @@ Create an ADR only for a durable, consequential decision: for example a data sto
 
 Use `context/adr/NNNN-short-title.md`, with sequential zero-padded numbers.
 
+## Creation Triggers
+
+- Create an ADR when a decision affects architecture boundaries, data ownership, authorization, storage, queues/background work, third-party services, deployment, public contracts, cost, compliance, or long-term maintainability.
+- In `strict` mode, create an initial ADR when any durable architecture choice exists.
+- If no ADR is created in `strict` mode, record the not-applicable reason in `context/progress-tracker.md`.
+
 ```md
 # ADR NNNN: [Decision Title]
 

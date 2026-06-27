@@ -1,91 +1,67 @@
-# Ghost AI
+# Project Overview Blueprint
+
+Use this blueprint to create `context/project-overview.md`.
+Replace every bracketed prompt with project-specific content.
+Do not copy examples, names, feature lists, user flows, or success criteria from previous projects.
+
+```md
+# [Project Name]
 
 ## Overview
 
-Ghost AI is a real-time collaborative system design workspace. Users describe a system in plain English, an AI agent maps that system onto a shared canvas, collaborators refine the architecture, and the app generates a technical specification from the resulting graph.
+[One concise paragraph describing what the product is, who it serves, the problem it solves, and the outcome it creates.]
 
 ## Goals
 
-1. Let authenticated users create and manage architecture projects.
-2. Provide a collaborative real-time canvas for system design.
-3. Let users import prebuilt starter system designs into the canvas.
-4. Let AI generate an initial architecture from a natural language prompt.
-5. Let collaborators refine the generated architecture.
-6. Convert the final graph into a persistent Markdown technical spec.
+1. [Primary product or user outcome]
+2. [Secondary product or user outcome]
+3. [Operational, learning, business, or implementation outcome]
 
 ## Core User Flow
 
-1. User signs in.
-2. User creates or selects a project.
-3. User enters the project workspace.
-4. User optionally imports a starter system design template into the canvas.
-5. User prompts the AI to generate or extend the system design.
-6. AI generates nodes and edges in the shared canvas.
-7. Collaborators edit and refine the design.
-8. User triggers spec generation.
-9. App persists the generated Markdown spec.
-10. User reviews or downloads the spec.
+1. [User entry point]
+2. [First meaningful action]
+3. [System response or collaboration step]
+4. [User refinement or decision step]
+5. [Successful completion state]
 
 ## Features
 
-### Authentication and Projects
+### [Feature Group]
 
-- User sign-in and route protection.
-- Project creation, ownership, and collaborator access.
-- Project list and workspace navigation.
+- [Capability]
+- [Capability]
 
-### Collaborative Canvas
+### [Feature Group]
 
-- Shared real-time canvas using Liveblocks and React Flow.
-- Live cursors, presence indicators, and node/edge editing.
-- Canvas snapshots persisted to the filesystem.
-
-### Starter System Designs
-
-- A curated library of prebuilt system design templates.
-- Users can import a starter template into the canvas at any point during editing.
-- Templates are static canvas snapshots loaded directly into the active room.
-- Covers common patterns: monolith, microservices, event-driven, serverless, and more.
-
-### AI Architecture Generation
-
-- AI generates a system design from a user-supplied prompt.
-- Output is structured as canvas nodes and edges written into the shared room.
-- Generation runs as a durable background task.
-
-### Spec Generation
-
-- The current canvas graph is converted into a Markdown technical specification.
-- Specs are persisted as files and linked to the project in the database.
-- Users can view and download generated specs.
+- [Capability]
+- [Capability]
 
 ## Scope
 
 ### In Scope
 
-- Authentication and route protection
-- Project creation and ownership
-- Collaborator access by project
-- Starter system design template library and import
-- Real-time shared canvas with nodes, edges, and presence
-- AI-powered architecture generation from prompts
-- AI-powered Markdown spec generation from the canvas graph
-- Persistent storage for project metadata and generated artifacts
-- Spec download
+- [Included capability, workflow, role, platform, integration, or constraint]
+- [Included capability, workflow, role, platform, integration, or constraint]
 
 ### Out Of Scope
 
-- Billing and subscription systems
-- Enterprise permission tiers beyond owner and collaborator
-- Versioned spec history and review workflows
-- Production object storage migration
-- Mobile-native applications
+- [Explicitly deferred capability, workflow, role, platform, integration, or constraint]
+- [Explicitly deferred capability, workflow, role, platform, integration, or constraint]
 
 ## Success Criteria
 
-1. A signed-in user can create and open a project.
-2. Multiple users can collaborate in the same canvas simultaneously.
-3. A user can import a prebuilt starter design into the canvas.
-4. AI can generate an architecture into the shared room from a prompt.
-5. The graph can be converted into a persisted Markdown spec.
-6. Project metadata and generated artifacts are stored in the correct layers.
+1. [Measurable condition proving the main flow works]
+2. [Measurable condition proving the product outcome is met]
+3. [Measurable condition proving the implementation is ready to continue]
+
+## Assumptions and Open Questions
+
+### Assumptions
+
+- [Assumption made to avoid blocking kickoff]
+
+### Open Questions
+
+- [Question that needs user, product, technical, legal, or operational confirmation]
+```

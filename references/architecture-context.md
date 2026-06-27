@@ -1,68 +1,64 @@
+# Architecture Context Blueprint
+
+Use this blueprint to create `context/architecture-context.md`.
+Replace every bracketed prompt with project-specific choices, assumptions, or explicit unknowns.
+Do not copy framework names, service providers, storage paths, architecture decisions, or implementation constraints from previous projects unless the current project explicitly requires them.
+
+```md
 # Architecture Context
 
 ## Stack
 
-| Layer            | Technology              | Role                                                           |
-| ---------------- | ----------------------- | -------------------------------------------------------------- |
-| Framework        | Next.js 16 + TypeScript | Full-stack app with server/client boundaries                   |
-| UI               | Tailwind + shadcn/ui    | Component composition and styling                              |
-| Auth             | Clerk                   | User identity and route protection                             |
-| Database         | Prisma + PostgreSQL     | Relational metadata: projects, collaborators, specs, task runs |
-| Canvas           | Liveblocks + React Flow | Real-time collaborative canvas, presence, and cursors          |
-| Background tasks | Trigger.dev             | Durable AI generation workflows                                |
-| Artifact storage | Vercel Blob             | Canvas snapshots and generated Markdown specs                  |
+| Layer | Technology | Role | Status |
+| ----- | ---------- | ---- | ------ |
+| [Layer] | [Selected, preferred, assumed, or unknown technology] | [Why this layer exists] | [Confirmed / Assumed / Open] |
+| [Layer] | [Selected, preferred, assumed, or unknown technology] | [Why this layer exists] | [Confirmed / Assumed / Open] |
 
 ## System Boundaries
 
-- `app/api` — Authenticated request handlers: input validation, ownership checks, task triggering, and persistence.
-- `trigger` — Long-running background jobs: AI design generation and spec generation.
-- `lib` — Shared infrastructure: Prisma client, access control helpers, and utilities.
-- `components` — UI composition: canvas surfaces, sidebars, dialogs, and interactive elements.
-- `prisma` — Database schema and generated client output.
-- `data` — Legacy local directory. Not used for new artifacts.
+- `[Boundary or directory/module/service]` — [Responsibility, ownership, and what does not belong here.]
+- `[Boundary or directory/module/service]` — [Responsibility, ownership, and what does not belong here.]
 
-## Storage Model
+## Data and Storage Model
 
-- **Database**: metadata, ownership, relationships, and task run records.
-- **Vercel Blob**: generated artifacts — canvas snapshots at `canvas/{projectId}.json` and specs at `specs/{projectId}/{specId}.md`.
-- Project records, spec records, and task run records belong in PostgreSQL.
-- Canvas content and Markdown output are stored in and retrieved from Vercel Blob.
-- The blob URL is stored in the database (`canvasJsonPath`, `filePath`) as the reference to the artifact.
+- **[Data category]**: [Where it lives, who owns it, retention expectations, and access constraints.]
+- **[Data category]**: [Where it lives, who owns it, retention expectations, and access constraints.]
+- [How generated files, uploads, cache data, analytics, or third-party records are stored or explicitly deferred.]
 
-## Auth and Collaboration Model
+## Auth, Permissions, and Collaboration Model
 
-- Every project has a single owner (Clerk user ID).
-- Projects can include additional collaborators.
-- Only authenticated users can access protected routes.
-- Only the owner or a collaborator can mutate project resources.
-- Liveblocks room tokens are issued only after verifying project membership.
+- [Authentication model or explicit note that auth is not needed yet.]
+- [Primary roles and ownership rules.]
+- [Permission checks required at read, write, admin, export, billing, publishing, or destructive-action boundaries.]
+- [Collaboration, sharing, approval, or review model if relevant.]
 
-## Starter System Designs
+## Integrations and External Services
 
-- Prebuilt templates are static canvas snapshots stored in the codebase.
-- Templates are loaded into the active Liveblocks room when a user imports one.
-- Import can occur on canvas creation or from within the editor at any time.
-- Template data follows the same node/edge schema as user-created canvas content.
-- Templates do not require a separate database record; they are resolved by template ID at import time.
+- **[Service or integration]**: [Purpose, data exchanged, failure mode, and fallback/deferral.]
+- **[Service or integration]**: [Purpose, data exchanged, failure mode, and fallback/deferral.]
 
-## AI Generation Model
+## AI, Automation, or Background Work
 
-### Design Generation
+### [Workflow Name]
 
-- Input: user prompt, project context, and current canvas state.
-- Execution: durable background task via Trigger.dev.
-- Output: structured node and edge updates written into the shared Liveblocks room.
+- **Input**: [User input, system state, files, database records, or external events.]
+- **Execution**: [Synchronous request, queued job, scheduled job, human review, or external service.]
+- **Output**: [Persisted result, UI state, notification, artifact, or audit record.]
+- **Review boundary**: [What requires user confirmation before being applied, sent, deleted, or published.]
 
-### Spec Generation
+## Reusable Templates, Starter Data, or Seeds
 
-- Input: current canvas graph and project context.
-- Execution: durable background task via Trigger.dev.
-- Output: Markdown technical spec saved to the filesystem and linked to the project in the database.
+- [Starter content, fixtures, design presets, prompt templates, or sample data the project needs.]
+- [Where this material should live and how it is kept separate from user-owned production data.]
 
 ## Invariants
 
-1. Request handlers do not run long-lived AI work — that belongs in background tasks.
-2. Metadata and large generated artifacts are stored in separate layers.
-3. Auth and ownership are enforced at every mutation boundary.
-4. Client components are used only where browser interactivity or real-time state requires them.
-5. The canvas schema must remain consistent between user-created content and imported templates.
+1. [Rule that must stay true across implementation sessions.]
+2. [Rule about ownership, data flow, side effects, or module boundaries.]
+3. [Rule about generated artifacts, background work, permissions, or UI state.]
+
+## Risks and Open Technical Questions
+
+- [Risk or unresolved architecture decision.]
+- [Unknown dependency, operational concern, scaling constraint, or security question.]
+```

@@ -33,7 +33,7 @@ Do not modify generated third-party foundation components unless explicitly inst
 
 This includes:
 
-- `components/ui/*` (shadcn/ui components)
+- `[generated or vendor-managed component path]`
 - third-party library internals
 
 These should remain default and reusable.
